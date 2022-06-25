@@ -1,14 +1,14 @@
 :root{
     --text-primary: #fff;
     --text-secondary: hsla(0,0%,100%,0.5);
-    --layout-bg: #170f23;
-    --primary-bg: #432275;
+    --layout-bg: #1d375a;
+    --primary-bg: #274a78;
     --sidebar-bg: hsla(0,0%,100%,0.05);
     --alpha-bg: hsla(0,0%,100%,0.1);
     --alpha-bg-hover: hsla(0,0%,100%,0.2);
-    --purple-primary: rgb(114, 0, 161);
+    --purple-primary: #3460f5;
 
-    --linear-gradient-bg: linear-gradient(180deg,rgb(110, 34, 117),rgb(70, 40, 120));
+    --linear-gradient-bg: linear-gradient(180deg,#224472,#244572);
 
     --player-bg: rgba(0,0,0,0.5);
     --border-player: hsla(0,0%,100%,0.1);
