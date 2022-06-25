@@ -19,8 +19,8 @@
 
     --color-hover-btn:rgb(43, 41, 41);
 
-    --img-logo-mp3: url(/assets/img/logo-dark.svg);
-    --img-logo-mp3-tablets: url(/assets/img/icon_zing_mp3_60.f6b51045.svg);
+    --img-logo-mp3: url(../img/logo-dark.svg);
+    --img-logo-mp3-tablets: url(../img/icon_zing_mp3_60.f6b51045.svg);
     --navigation-text: #dadada;
 
     --color-active-theme:rgb(114, 0, 250);
