@@ -1036,7 +1036,7 @@ main .zm-content{
     bottom: 0;
 }
 .zm-zingchart-container .bg-blur{
-    background: url(/assets/img/bg-chart.jpg) top/cover no-repeat;
+    background: url(../img/bg-chart.jpg) top/cover no-repeat;
     z-index: -2;
 }
 .zm-zingchart-container .bg-alpha{
