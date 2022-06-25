@@ -1,0 +1,206 @@
+@media screen and (max-width: 1355px) {
+    .card-container-section{
+        display: grid;
+        grid-template-columns: repeat(4,23%);
+        justify-content: space-between;
+    }
+    .card-item-section:last-child{
+        display: none;
+    }
+
+
+    .card-container-section .card-item-is2-section:last-child{
+        display: none;
+    }
+}
+@media screen and (max-width:1300px) {
+    .new-songs-container .new-song-item{
+        min-width: 48.5%;
+        width: 50%;
+    }
+    .new-songs-container{
+        animation: smooth 20s steps(4) infinite;
+    }
+    @keyframes smooth {
+        100%{
+            transform: translate3d(-409%,0px,0px);
+        }
+    }
+}
+@media screen and (max-width:1330px) {
+    .chart-content .song-item .text{
+        width: 25%;
+    }
+}
+
+@media screen and (max-width:1224px) {
+    .zm-zingchart-container .chart-content{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .radio-card-container{
+        grid-template-columns: repeat(5,18%);
+    }
+    .radio-card-container .radio-item:nth-child(6),
+    .radio-card-container .radio-item:nth-child(7){
+        display: none;
+    }
+    .chart-content .chart{
+        margin-left: 0rem;
+        max-width: 98%;
+    }
+    .recent-container{
+        grid-template-columns:repeat(5,18%)
+    }
+    .recent-container .recent-item:last-child{
+        display: none;
+    }
+
+
+
+
+
+    .controls-center .play-time .duration{
+        width: 300px;
+    }
+    .controls-right .volume .duration{
+        display: none;
+    }
+}
+
+
+@media screen and (max-width:1135px) {
+    .zm-layout{
+        grid-template-columns: 70px auto;
+    }
+    .zm-aside{
+        width: 70px;
+        z-index: 50;
+        overflow: hidden;
+        background: var(--alpha-bg-hover);
+    }
+    .zm-sidebar-secondary .zm-sidebar-menu{
+        overflow-y: auto;
+    }
+
+    main .zm-header{
+        left: 70px;
+    }
+
+    .zm-navbar-brand{
+        width: 70px;
+        padding: 0;
+    }
+    .zm-logo{
+        width: 70px;
+        background: var(--img-logo-mp3-tablets) 50%/contain no-repeat;
+    }
+    .zm-sidebar-menu li.active::before{
+        content: "";
+        display: none;
+    }
+    
+    .zm-sidebar-menu li a span:nth-child(2){
+        display: none;
+    }
+    .zm-sidebar-main .zm-sidebar-menu li:nth-child(4) .live{
+        display: none;
+    }
+    .zm-layout .add-playlist-sidebar{
+        display: none;
+    }
+    .sidebar-divide{
+        margin: 15px 10px;
+    }
+    .zm-sidebar-menu li a:hover button{
+        display: none;
+    }
+    .zm-aside .zm-sidebar-wrapper .zm-sidebar-menu li a{
+        justify-content: center;
+        padding: 15px 0;
+    }
+
+    
+
+
+
+
+    .controls-center .play-time .duration{
+        width: 230px;
+    }
+    .controls-left .media-right{
+        margin-left: 0;
+    }
+    .player-controls-container .controls-right{
+        gap: 0.75rem;
+    }
+    .controls-left .media-right button.more{
+        display: none;
+    }
+    .controls-left .media-content{
+        width: 50%;
+        overflow: hidden;
+    }
+    .zm-singer-container a figure img{
+        width: 150px;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    :root{
+      --padding-section: 25px;
+    }
+    .zm-card-event-container{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .zm-card-event .zm-card-event-container .event-item:last-child{
+        display: none;
+    }
+    .zm-partner-container .partner-item{
+        width: 20%;
+        height: 80px;
+    }
+    .gallery-container > div{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .gallery-container > div .zm-card-image:last-child{
+        display: none;
+    }
+    .artist-favorite-container{
+        grid-template-columns: repeat(3,1fr);
+    }
+    .artist-favorite-container .artist-item:last-child{
+        display: none;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .controls-center .play-time .duration{
+        width: 180px;
+    }
+    .zm-layout .player-controls-container{
+        grid-template-columns: 30% 40% 30%;
+    }
+    .player-controls-container .controls-right{
+        gap: 0.25rem;
+    }
+    .zm-header .header-right .profile-area{
+        gap: 0.4rem;
+    }
+}
+
+@media screen and (min-width:1500px) {
+    
+    .zm-playlist-container{
+        display: block;
+    }
+    
+    .zm-layout{
+        grid-template-columns: 15rem auto 20.5rem;
+    }
+    main .zm-header{
+        right: 20.5rem;
+    }
+}

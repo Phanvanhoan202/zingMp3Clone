@@ -1,0 +1,1688 @@
+:root{
+    --text-primary: #fff;
+    --text-secondary: hsla(0,0%,100%,0.5);
+    --layout-bg: #170f23;
+    --primary-bg: #432275;
+    --sidebar-bg: hsla(0,0%,100%,0.05);
+    --alpha-bg: hsla(0,0%,100%,0.1);
+    --alpha-bg-hover: hsla(0,0%,100%,0.2);
+    --purple-primary: rgb(114, 0, 161);
+
+    --linear-gradient-bg: linear-gradient(180deg,rgb(110, 34, 117),rgb(70, 40, 120));
+
+    --player-bg: rgba(0,0,0,0.5);
+    --border-player: hsla(0,0%,100%,0.1);
+    --player-text: #fff;
+    
+    --height-player-controls:90px;
+    --padding-section: 59px;
+
+    --color-hover-btn:rgb(43, 41, 41);
+
+    --img-logo-mp3: url(/assets/img/logo-dark.svg);
+    --img-logo-mp3-tablets: url(/assets/img/icon_zing_mp3_60.f6b51045.svg);
+    --navigation-text: #dadada;
+
+    --color-active-theme:rgb(114, 0, 250);
+    color: #3f3737;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    -webkit-tap-highlight-color: none;
+    appearance: none;
+}
+body{
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    background: var(--layout-bg);
+    color: var(--text-primary);
+    /* line-height: 1.5;  */
+}
+
+
+/* ===================== DÙNG CHUNG ===================== */
+ul li{
+    list-style: none;
+}
+.zm-section-title{
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.title.is-25{
+    font-size: 25px;
+}
+.title.is-2{
+    font-size: 20px;
+}
+a{
+    cursor: pointer;
+}
+a.subtitle{
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    white-space: normal;
+}
+a.subtitle:hover{
+    color: var(--purple-primary);
+}
+.title{
+    text-transform: none;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+.title.is-16{
+    font-size: 16px;
+}
+a.title{
+    color: var(--text-primary);
+}
+a.title:hover{
+    color: var(--purple-primary);
+}
+.subtitle-wrap a.subtitle{
+    display: inline-block;
+}
+.subtitle{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.33;
+    color: var(--text-secondary);
+}
+.zm-card-image{
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+.zm-section{
+    margin-top: 30px;
+}
+img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.zm-btn {
+    font-size: 14px;
+    border-radius: 999px;
+    line-height: normal;
+    border: 0;
+    display: inline-block;
+    font-weight: 400;
+    text-transform: none;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    background: transparent ;
+}
+
+.duration{
+    flex: 1;
+    width: 0;
+    height: 3px;
+    background: var(--alpha-bg);
+    border-radius: 20px;
+}
+.duration span{
+    width: 0;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-radius: inherit;
+}
+.duration span::before{
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: inherit;
+    right: -6px;
+    display: none;
+}
+
+
+/* ============ HOVER ============ */
+.hover{
+    position: relative;
+
+}
+.title-hover{
+    position: absolute;
+    bottom: -34px;
+    padding: 6px 8px;
+    width: auto;
+    background: var(--color-hover-btn);
+    border-radius: 4px;
+    font-size: 12px;
+    width: max-content;
+    height: max-content;
+    display: none;
+    z-index: 100;
+}
+.title-hover::before{
+    content: "";
+    position: absolute;
+    border-width: 7px;
+    border-style: solid;
+    border-color: transparent transparent var(--color-hover-btn) transparent;
+    top: -12px;
+    transform: rotate(45deg);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+.divide{
+    height: 1px;
+    background: var(--alpha-bg);
+    margin: 6px 0;
+}
+
+
+
+/* ================= HOVER CARD ================= */
+.hover-card-section{
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: none;
+    align-items: center;
+    justify-content: space-around;
+    transition: all 1s ease;
+    padding: 0 10px;
+}
+.hover-card-section .play{
+    font-size: 50px;
+}
+.hover-card-section > div{
+    padding: 3px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.hover-card-section div:hover{
+    background: var(--alpha-bg);
+}
+.hover-card-section .play:hover{
+    background: none;
+}
+.hover-card-section div:hover .title-hover{
+    display: block;
+}
+
+
+/* ==================== CARD ITEM SECTION ==================== */
+
+.card-container-section{
+    display: grid;
+    grid-template-columns: repeat(5,18%);
+    justify-content: space-between;
+}
+
+.card-item-section .zm-card-image{
+    cursor: pointer;
+}
+.card-item-section .zm-card-image figure img{
+    transition: all 1s ease;
+    transform: scale(1.01);
+}
+.card-item-section .zm-card-image:hover .hover-card-section{
+    display: flex;
+}
+.card-item-section .zm-card-image:hover img{
+    transform: scale(1.2);
+}
+.card-item-section .card-content-section{
+    margin-top: 0.4rem;    
+}
+.card-item-section .card-content-section .subtitle-wrap{
+    display: flex;
+    margin-top: 0.1rem;
+    white-space: normal;
+    color: var(--text-secondary);
+    overflow: hidden;
+    max-height: 2.5rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.card-content-section .subtitle-wrap a{
+    display: inline-block;
+}
+/* =============================================== */
+
+
+
+/* ================ MEDIA HEADER SECTION (DÙNG CHUNG) ================ */
+.media-header-section{
+    justify-content: inherit;
+    gap: 1rem;
+    align-items: center;
+}
+.media-header-section .zm-card-image{
+    border-radius: 6px;
+}
+.media-header-section .zm-card-image figure{
+    width: 55px;
+    height: 55px;
+    transition: all 500ms ease;
+}
+.media-header-section .zm-card-image figure:hover{
+    transform: scale(1.1);
+}
+/* ================================ */
+
+
+
+
+/* ========================== SCROLL BAR ========================== */
+::-webkit-scrollbar{
+    width: .4rem;
+    background-color: transparent;
+    border-radius: 1rem;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--alpha-bg);
+    border-radius: 1rem;
+}
+::-webkit-scrollbar:hover :-webkit-scrollbar-thumb{
+    background-color: var(--alpha-bg);
+}
+
+
+
+
+
+
+
+
+
+/* ================================== */
+/*  */
+div#root{
+    position: relative;
+}
+.zm-layout{
+    display: grid;
+    grid-template-columns:15rem auto;
+    position: relative;
+    width: 100%;
+    min-width: 768px;
+    height: 100vh;
+}
+
+
+/* =================== ASIDE =================== */
+.zm-aside-conatiner{
+    position: relative;
+}
+.zm-aside{
+    background: var(--sidebar-bg);
+    padding-top: 70px;
+    padding-bottom: 54px;
+    height: calc(100vh - var(--height-player-controls));
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 240px;
+}
+.zm-navbar-brand{
+    width: 240px;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    padding: 0 25px 0 28px;
+    display: flex;
+    align-items: center;
+}
+
+.zm-logo{
+    width: 120px;
+    height: 40px;
+    display: inline-block;
+    background: var(--img-logo-mp3) 50%/contain no-repeat;
+}
+
+
+.zm-aside .zm-sidebar-wrapper .zm-sidebar-main{
+}
+.zm-aside .zm-sidebar-wrapper .zm-sidebar-menu li a{
+    padding: 7px 25px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0.8;
+    width: 100%;
+}
+.zm-aside .zm-sidebar-wrapper .zm-sidebar-menu li a:hover{
+    opacity: 1;
+}
+.zm-sidebar-menu li a span:nth-child(1){
+    font-size: 28px;
+    font-weight: 300;
+}
+.zm-sidebar-menu li {
+    position: relative;
+}
+
+.zm-sidebar-menu li a button{
+    background: transparent;
+    color: var(--text-primary);
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    display: none;
+    font-size: 10px;
+    transition:  all 500ms ease;
+}
+.zm-sidebar-main .zm-sidebar-menu li:nth-child(4) .live{
+    position: absolute;
+    background: red;
+    border-radius: 3px;
+    padding: 0 5px;
+    text-align: center;
+    right: 35%;
+    font-size: 12px;
+    color: #fff;
+}
+.zm-sidebar-menu li a:hover button{
+    display: flex;
+}
+.zm-sidebar-menu .active{
+    background: var(--alpha-bg);
+}
+.zm-sidebar-menu li.active::before{
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    background: var(--purple-primary);
+}
+.sidebar-divide{
+    height: 1px;
+    background: var(--alpha-bg);
+    margin: 15px 25px;
+}
+
+.zm-layout .add-playlist-sidebar{
+    position: fixed;
+    bottom: var(--height-player-controls);
+    width: 240px;
+    height: 54px;
+    padding: 0 28px;
+    border-top: 1px solid var(--alpha-bg);
+}
+.zm-layout .add-playlist-sidebar button{
+    display: flex;
+    align-items: center;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    color: var(--text-primary);
+    gap: 0.7rem;
+    cursor: pointer;
+    font-weight: 700;
+}
+.zm-layout .add-playlist-sidebar button .text{
+    font-size: 15px;
+}
+
+
+
+
+
+/* ============== PLAYER CONTROLS ================= */
+
+.zm-layout .player-controls{
+    background: var(--layout-bg);
+    height: var(--height-player-controls);
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+    width: 100%;
+    border-top: var(--border-player);
+    border-top: 1px solid var(--border-player);
+}
+.zm-layout .player-controls-container{
+    background: var(--player-bg);
+    height: 90px;
+    min-width: 768px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    padding: 0 20px;
+
+}
+.zm-layout .player-controls-container .controls-left{
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+.controls-left .media-left img{
+    width: 64px;
+    height: 64px;
+    border-radius: 5px;
+}
+.controls-left .media-content{
+    display: flex;
+    flex-direction: column;
+}
+.controls-left .media-content .song-title{
+    font-weight: 700;
+}
+.controls-left .media-content .singer a{
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+.controls-left .media-right{
+    margin-left: 1rem;
+}
+.controls-left .media-right button{
+    color: var(--player-text);
+    background: transparent;
+    margin: 0 5px;
+    position: relative;
+}
+
+.controls-left .media-right button span{
+    font-size: 20px;
+}
+.controls-left .media-right button.favorite span:nth-child(2){
+    color: red;
+    display: none;
+}
+.controls-left .media-right button.favorite.active span:nth-child(2){
+    display: block;
+}
+.controls-left .media-right button.favorite.active span:nth-child(1){
+    display: none;
+}
+
+
+ /* ============== PLAYER CONTROLS CENTER ============== */
+.player-controls-container .controls-center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.player-controls-container .controls-center .actions{
+    display: flex;
+}
+.controls-center .actions .action-item{
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+}
+.controls-center .actions .action-item:first-child span,
+.controls-center .actions .action-item:last-child span{
+    font-size: 18px;
+}
+.controls-center .actions .action-item:nth-child(3) span{
+    font-size: 40px;
+}
+.controls-center .actions .action-item:nth-child(3) .pause{
+    display: none;
+}
+.controls-center .actions .action-item:nth-child(3).active .pause{
+    display: block;
+}
+.controls-center .actions .action-item:nth-child(3).active .play{
+    display: none;
+}
+
+.player-controls-container .controls-center .play-time{
+    display: flex;
+}
+
+
+.controls-center .play-time{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.controls-center .play-time .duration{
+    width: 400px;
+}
+.controls-center .play-time .duration span{
+    animation: play 325s linear infinite;
+}
+@keyframes play {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 100%;
+    }
+}
+.controls-center .play-time .duration:hover{
+    height: 6px;
+}
+.controls-center .play-time .duration:hover span::before{
+    display: block;
+}
+
+
+    /* ============= PLAY CONTROLS RIGHT ============= */
+.player-controls-container .controls-right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+
+}
+.player-controls-container .controls-right button{
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: var(--player-text);
+    border-radius: 999px;
+}
+.controls-right button .icon{
+    font-size: 20px;
+}
+
+ /* ======== HOVER ======== */
+.controls-right button:hover{
+    background: var(--alpha-bg);
+}
+.controls-right button:hover .title-hover{
+    display: block;
+}
+.controls-right button .title-hover{
+    top: -34px;
+    font-size: 11px;
+}
+.controls-right button .title-hover::before{
+    border-color: var(--color-hover-btn) transparent transparent transparent;
+    bottom: -12px;
+    top: initial;    
+}
+.controls-right button:last-child .title-hover{
+    right: 0;
+}
+.controls-right button:last-child .title-hover::before{
+    left: initial;
+    transform: initial;
+    right: 10px;
+}
+/* ============== */
+
+
+.controls-right button:last-child{
+    border-radius: 6px;
+    background: var(--alpha-bg);
+    margin-left: 4px;
+}
+.player-controls-divide{
+    width: 2px;
+    height: 40%;
+    background: var(--alpha-bg);
+    margin: 0 8px;
+}
+.controls-right .volume{
+    gap: 1rem;
+}
+.controls-right .volume .duration{
+    width: 70px;
+}
+.controls-right .volume .duration span{
+    width: 70%;
+}
+.controls-right .volume:hover .duration span::before{
+    display: block;
+} 
+
+
+
+
+
+
+
+
+/* ================ MAIN ================ */
+main{
+    position: relative;
+    height: calc(100% - var(--height-player-controls));
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* ================== HEADER ================== */
+.header-scroll{
+    border-bottom: 1px solid var(--border-player);
+    box-shadow: 0 5px 10px var(--layout-bg);
+}
+
+main .zm-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 15rem;
+    right: 10px;
+    padding: 15px var(--padding-section);
+    z-index: 100;
+    background: var(--layout-bg);
+}
+
+    /* -------------- HEADER LEFT -------------- */
+.zm-header .header-left{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 60%;
+}
+.zm-header .header-left button{
+    color: #fff;
+    opacity: 0.6;
+    width: 35px;
+}
+.zm-header .header-left .search-bar{
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    border-radius: 20px;
+    background: var(--alpha-bg);
+    padding: 10px;
+    position: relative;
+    width: 100%;
+}
+.header-left .search-bar input[type="search"]{
+    width: 90%;
+    height: 100%;
+    background: transparent;
+    color: #fff;
+    font-size: 15px;
+}
+.header-left .search-bar input[type="search"]::placeholder{
+    color: rgb(247, 247, 247,0.8);
+}
+.search-bar .search-suggest{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    border-radius: 20px;
+    height: max-content;  
+    background: var(--primary-bg);
+    display: none;
+    z-index: -1;
+    padding: 55px 10px 10px;
+}
+.header-left .search-bar input[type="search"]:focus ~ .search-suggest{
+    display: block; 
+}
+.search-bar .search-suggest .menu-suggest li a{
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 10px 8px;
+    border-radius: 4px;
+}
+.search-suggest .menu-suggest li a span{
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+.search-suggest .menu-suggest li a h3{
+    color: var(--text-primary);
+    font-weight: 300;
+    font-size: 14px;
+}
+.search-suggest .menu-suggest li a:hover{
+    background: var(--alpha-bg);
+}
+
+
+
+
+
+    /* -------------- HEADER RIGHT -------------- */
+.zm-header .header-right{
+    justify-self: flex-end;
+}
+.zm-header .header-right .profile-area{
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+}
+.header-right .profile-area .item{
+    background: var(--alpha-bg);
+    padding: 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+}
+.header-right .profile-area .item:nth-child(1){
+    background: linear-gradient(0deg, rgba(235,222,24,1) 0%, rgba(219,61,221,1) 100%)
+}
+.header-right .profile-area .item:hover{
+    background: var(--alpha-bg-hover);
+}
+.header-right .profile-area .item:hover .title-hover{
+    display: block;
+}
+.zm-header .profile-photo{
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+.zm-header .profile-photo img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+}
+
+.menu-setting{
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 260px;
+    background: var(--primary-bg);
+    margin: 0;
+    border-radius: 8px;
+    padding: 10px 0;
+    display: none;
+}
+.menu-setting li a {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    color: #DADADA;
+    padding: 10px 12px;
+    font-size: 15px;
+}
+.menu-setting li:hover a{
+    background: var(--alpha-bg);
+}
+.profile-photo.active .menu-setting{
+    display: block;
+}
+
+
+ /* ==================== MAIN CONTENT ==================== */
+main .zm-content{
+    padding: var(--padding-section);
+}
+.zm-gallery{
+    margin-top: 40px;
+}
+.gallery-container > div{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.6rem;
+    cursor: pointer;
+}
+
+/* =========== RECENT PLAY =========== */
+.recent-container{
+    display: grid;
+    grid-template-columns: repeat(6,14.5%);
+    justify-content: space-between;
+}
+.recent-container .recent-item{
+    width: 100%;
+    cursor: pointer;
+}
+.recent-item .content-title{
+    height: max-content;
+    margin-top: 0.5rem;
+}
+.recent-item .zm-card-image figure{
+    line-height: 0;
+    height: 0;
+    padding-bottom: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 1s ease;
+}
+.recent-item .zm-card-image figure img {
+    transition: all 1s ease;
+}
+.recent-item .zm-card-image:hover figure{
+    transform: scale(1.2);
+}
+.recent-item .zm-card-image:hover .hover-card-section{
+    display: flex;
+}
+
+
+
+/* PLAY OFFER */
+
+/* ================== RADIO ================== */
+.radio-item .svg-circle-bg {
+    fill: none;
+}
+.radio-item .svg-circle{
+    fill: none;
+}
+
+.radio-card-container {
+    display: grid;
+    grid-template-columns: repeat(7, 11.8%);
+    justify-content: space-between;
+}
+.radio-item .top{
+    position: relative;
+    cursor: pointer;
+}
+.radio-item .zm-card-image{
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+.radio-item .top .zm-card-image figure{
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+}
+.radio-item .top .zm-card-image figure img{
+    transition: all 1s ease;
+}
+.radio-item .top:hover .zm-card-image figure img{
+    transform: scale(1.2);
+}
+.radio-item .top .hover-card-section{
+    border-radius: 999px;
+}
+.radio-item .top:hover .hover-card-section{
+    display: flex;
+}
+.radio-item .top .live{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.radio-item .top .avt{
+    position: absolute;
+    z-index: 5;
+    bottom: 7px;
+    right: 0;
+    border-radius: 999px;
+    overflow: hidden;
+    border: 2px solid rgba(0,0,0,0.7);
+}
+.radio-item .top .avt img{
+    width: 40px;
+    height: 40px;
+}
+.radio-item .bottom{
+    text-align: center;
+    margin-top: 0.8rem;
+}
+.radio-item .bottom .subtitle{
+    font-size: 12px;
+    margin-top: -1px;
+    display: block;
+}
+/* ======================================= */
+
+
+
+/* ================== CARD 2 (DÙNG CHUNG) ================== */
+.card-container-section .card-item-is2-section{
+    border-radius:6px;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+}
+.card-item-is2-section .zm-card-image{
+    border-radius: initial;
+    cursor: pointer;
+}
+.card-item-is2-section .card-content-section{
+    position: relative;
+    height: 64px;
+    padding: 10px 10px 0;
+    background: hsla(0, 0%, 0%, 0.644);
+    backdrop-filter: blur(20px);
+    width: 100%;
+    color: #fff;
+}
+.card-item-is2-section .card-content-section .title{
+    font-size: 16px;
+}
+.card-item-is2-section .zm-card-image:hover .hover-card-section{
+    display: flex;
+}
+.card-item-is2-section .zm-card-image figure img{
+    transition: all 500ms ease; 
+    transform: scale(1.02);
+}
+.card-item-is2-section .zm-card-image:hover figure img{
+    transform: scale(1.2);  
+}
+.card-item-is2-section .card-content-section .subtitle-wrap{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+.card-item-is2-section .subtitle-wrap a:hover{
+    text-decoration: underline;
+}
+/* ===================================================== */
+
+
+/* ========================= FOR FAN ========================= */
+
+.zm-for-fan .card-item-section .subtitle-wrap .subtitle:hover{
+    text-decoration: underline;
+}
+.zm-for-fan .card-item-section .card-content-section .subtitle-wrap{
+    height: 1.33 !important;
+}
+
+
+
+
+
+/* ===================== ZING CHART ===================== */
+.zm-zingchart-container{
+    padding: 20px;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+.zm-zingchart-container .bg-blur,
+.zm-zingchart-container .bg-alpha{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.zm-zingchart-container .bg-blur{
+    background: url(/assets/img/bg-chart.jpg) top/cover no-repeat;
+    z-index: -2;
+}
+.zm-zingchart-container .bg-alpha{
+    background: var(--linear-gradient-bg);
+    z-index: -1;
+    opacity: 0.95;
+}
+
+.zm-zingchart-container .chart-header{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 16px;
+}
+.zm-zingchart-container .chart-header span.icon{
+    font-size: 25px;
+    background: #fff;
+    border-radius: 50%;
+    color: var(--purple-primary)
+}
+.zm-zingchart-container .chart-content{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap: 0rem;
+}
+.zm-zingchart-container .chart-content .songs{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.zm-zingchart-container .chart-content .song-item{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--alpha-bg);
+    border-radius: 6px;
+    padding: 10px 15px;
+}
+.zm-zingchart-container .chart-content .song-item:hover{
+    background: var(--alpha-bg-hover);
+}
+.chart-content .song-item .hover-card-section span{
+    font-size: 25px;
+}
+.zm-zingchart-container .chart-content .song-item:hover .hover-card-section{
+    display: flex;
+}
+
+.chart-content .song-item .zm-card-image figure{
+    width: 60px;
+    height: 60px;
+}
+.chart-content .song-item .rank{
+    font-size: 30px;
+    font-weight: 900;
+    color: transparent;
+}
+.songchart-top1{
+    -webkit-text-stroke: 1px #4a90e2;
+    opacity: 1;
+}
+.songchart-top2{
+    -webkit-text-stroke: 1px #50e3c2;
+   
+}
+.songchart-top3{
+    -webkit-text-stroke: 1px #e35050;
+    opacity: 1;
+}
+
+.chart-content .song-item .text{
+    width: 40%;
+}
+.chart-content .song-item .text  .title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+}
+.chart-content .song-item .text .subtitle-wrap a{
+    display: inline-block;
+    font-size: 12px;
+}
+.chart-content .song-item .text .subtitle-wrap a:hover{
+    text-decoration: underline;
+}
+.chart-content .song-item .percent-listen{
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;    
+    font-weight: 600;
+    font-size: 18px;
+}
+.chart-content .btn{
+    text-align: center;
+}
+.chart-content button.zm-btn{
+    color: var(--text-primary);
+    border: 1px solid #fff;
+    padding: 8px 25px;
+    width: max-content;
+    margin-bottom: 10px;
+}
+.chart-content button.zm-btn:hover{
+    background: var(--alpha-bg-hover);
+}
+.chart-content .chart{
+    flex: 1;
+    margin-left: 2rem;
+    max-width: 100%;
+
+}
+canvas.chart-songs{
+    z-index: 2;
+    color: #fff;
+}
+
+
+
+
+/* ================== BANNER ================== */
+.zm-banner-container {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.8rem;
+}
+.zm-banner-container .zm-card-image{
+    cursor: pointer;
+}
+.zm-banner-container .zm-card-image img{
+    transition: all 700ms ease;
+}
+.zm-banner-container .zm-card-image:hover img{
+    transform: scale(1.1);
+}
+/* ========================== */
+
+
+
+
+/* =================== SINGER =================== */
+.zm-singer-container{
+    display:flex;
+    overflow: hidden;
+    position: relative;
+}
+.zm-singer-container .singer{
+    display: flex;
+    gap: 1.8rem;
+    transform: translateX(0);
+    transition: all 800ms ease;
+}
+
+.zm-singer-container a figure img{
+    width: 118px;
+}
+.zm-singer-container .btn{
+    position: absolute;
+    background: #fff;
+    color: rgb(15, 15, 15);
+    display: flex;
+    top: 50%;
+    transform: translateY(-50%);
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 7px;
+    cursor: pointer;
+    opacity: 0.5;
+    z-index: 10;
+}
+.zm-singer-container .btn:hover{
+    opacity: 1;
+}
+.zm-singer-container .btn.pre-btn{
+    left: 0;
+}
+.zm-singer-container .btn.next-btn{
+    right: 0;
+}
+
+
+
+/* ==================== EVENT ==================== */
+.zm-event .subtitle{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.zm-event .subtitle span{
+    font-size: 20px;
+}
+.zm-event .subtitle span:hover{
+    color: var(--text-primary);
+    cursor: pointer;
+}
+.zm-card-event{
+    display: flex;
+    overflow: hidden;
+}
+.zm-card-event-container{
+     display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.8rem;
+}
+.zm-card-event .zm-card-event-container .event-item{
+}
+
+.event-item .zm-card-image{
+    cursor: pointer;
+}
+.event-item .zm-card-image figure img{
+    transition: all 700ms ease;
+}
+.event-item .zm-card-image:hover figure img {
+    transform: scale(1.12);    
+}
+.event-item .zm-card-image .event-opacity{
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 27%, rgba(0,0,0, 0.5));
+} 
+.event-item .event-content{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+.event-item .event-content span.tag{
+    color: red;
+    width: max-content;
+    font-size: 10px;
+    padding: 0 4px;
+    border-radius: 3px;
+    background: #fff;
+}
+.event-item .event-content .title{
+    font-size: 17px;
+}
+.event-item .subtitle{
+    color: var(--text-primary);
+}
+.event-item .event-follow{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.event-item .event-follow .follow .user-follow{
+    display: flex;
+    margin-top: 4px;
+}
+.event-item .event-follow .follow .user-follow span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 999px;
+    overflow: hidden;
+    border: 2px solid var(--alpha-bg);
+}   
+.event-item .event-follow .follow .user-follow p{
+    display: block;
+    color: var(--text-secondary);
+}
+.event-item .event-follow .follow .user-follow span:nth-child(n+2){
+    margin-left: -8px;
+    z-index: 10;
+}
+.event-item .event-follow .btn-follow{
+    background: var(--purple-primary);
+    color: var(--text-primary);
+    padding: 10px 22px;
+    align-self: flex-start;
+    font-size: 14px;
+}
+.event-item .event-follow .btn-follow:hover{
+    opacity: .8;
+}
+
+
+
+
+/* ================= NEW SONG ================= */
+.new-songs{
+    padding: 4px 0;
+    overflow: hidden;
+}
+.new-songs-container{
+    display: flex;
+    width: 100%;
+    gap: 1.5rem;
+    transform: translate3d(0px,0px,0px);
+    animation: smooth 20s steps(3) infinite;
+}
+@keyframes smooth {
+    100%{
+        transform: translate3d(-307%,0px,0px);
+    }
+}
+.new-songs-container .new-song-item{
+    min-width: 31.7%;
+    display: flex;
+    gap: 0.6rem;
+    padding: 14px;
+    background: var(--alpha-bg);
+    border-radius: 4px;
+
+}
+.new-song-item .zm-card-image{
+    width: 120px;
+}
+.new-song-item .zm-card-image:hover .hover-card-section{
+    display: flex;
+}
+.new-song-item .zm-card-image:hover img{
+    transform: scale(1.1);
+}
+.new-song-item .zm-card-image img{
+    border-radius: 4px;
+    transition: all 700ms ease;
+}
+.new-song-item .content{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 4px 0;
+}
+.new-song-item .content .title-wrap .title{
+    white-space: normal;
+    line-height: 1.1;
+}
+.new-song-item .content .subtitle-wrap{
+    overflow: hidden;   
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.new-song-item .content .subtitle-wrap a.subtitle{
+    font-size: 12px;
+    white-space: wrap;
+}
+.new-song-item .content .rank-wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex: 1;
+}
+.new-song-item .content .rank-wrap .rank{
+    font-size: 40px;
+    -webkit-text-stroke: 1px rgba(255,255,255, 0.5);
+    color: transparent;
+    font-weight: 700;
+    line-height: 0.9;
+}
+.new-song-item .content .rank-wrap .date{
+    font-size: 15px;
+}
+/* ======================================================== */
+
+
+
+
+
+/* ===================== ARTIST FAVORITE (NGHỆ SĨ YÊU THÍCH) ===================== */
+.artist-favorite-container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1.5rem;
+}
+.artist-item .artist-wrap{
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    color: var(--text-primary);
+}
+.artist-favorite-container .artist-item .bg-blur{
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+.artist-item:hover .hover-card-section{
+    display: flex;
+    color: #fff;
+    background: rgba(0,0,0, 0.09);
+}
+.artist-item .zm-card-image img{
+    transition: all 1000ms ease;
+}
+.artist-item:hover .zm-card-image img{
+    transform: scale(1.1);
+}
+.artist-item .mix-content{
+    position: absolute;
+    bottom: 20px;
+    padding: 0 20px;
+    z-index: 10;
+    width: 100%;
+}
+
+.artist-item .mix-content .album{
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 20px;
+}
+.artist-item .mix-content .album .image{
+    border-radius: 4px;
+    overflow: hidden;
+}
+/* ======================================================= */
+
+
+
+/* ================== FOOTER ================== */
+.zm-footer .zm-section-title{
+    display: flex;
+    justify-content: center;
+    opacity: 0.6;
+}
+.zm-footer .zm-section-title .title:hover{
+    color: var(--purple-primary);
+    cursor: pointer;
+}
+.zm-partner-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+}
+.zm-partner-container .partner-item{
+    width: 10%;
+    height: 60px;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.zm-partner-container .partner-item figure{
+    background-color: #f7f7f7;
+    line-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.zm-partner-container .partner-item img{
+    max-width: 90%;
+    max-height: 80%;
+    width: auto;
+}
+
+
+
+
+/* ======================= THEME MODAL ======================= */
+.zm-theme-modal{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: none;
+}
+.zm-theme-modal .theme-overlay{
+    background: rgba(0,0,0, 0.4);
+    height: 100%;
+    display: grid;
+    place-items: center;
+    z-index: 0;
+}
+.theme-overlay .theme-modal-container{
+    background: var(--primary-bg);
+    width: 65%;
+    border-radius: 6px;
+    padding: 25px 35px;
+    z-index: 10;
+}
+.theme-overlay .theme-modal-container .theme{
+    margin-top: 15px;
+}
+.theme-overlay .theme-modal-container .header-theme{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.theme-modal-container .header-theme .btn-close-them{
+    cursor: pointer;
+}
+.theme-overlay .theme-modal-container .theme .title{
+    margin-bottom: 10px;
+}
+.zm-theme-modal .theme .choose-color{
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(4,1fr);
+}
+.zm-theme-modal .theme .choose-color .card-theme{
+    cursor: pointer;
+}
+.theme .choose-color .card-theme .text{
+    margin-top: 0.4rem;
+    font-size: 12px;
+}
+
+
+.card-theme.active .theme-image{
+    border: 1px solid var(--purple-primary);
+}
+.card-theme .zm-card-image .tick-active{
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    background: var(--purple-primary);
+    color: var(--text-primary);
+    border-radius: 999px;
+    display: flex;
+    padding: 2px;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+.card-theme.active .tick-active{
+    display: flex;
+}
+
+
+/* ======================= PLAYLIST RIGHT =================== */
+.zm-playlist-container{
+    display: none;  
+    border-left: 1px solid rgba(255,255,255, 0.04);
+}
+.zm-playlist-container .zm-playlist{
+    padding: 20px 10px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 20.5rem;
+    height: calc(100vh - var(--height-player-controls));
+    overflow: hidden;
+}
+.zm-playlist-container .zm-playlist .header{
+    display: flex;
+    justify-content: space-between;
+    gap: 0.2rem;
+}
+.zm-playlist .header > div{
+    background: var(--alpha-bg);
+    border-radius: 999px;
+}
+.zm-playlist .header .header-title{
+    display: flex;
+    padding: 4px;
+}
+.zm-playlist .header .header-title .title{
+    width: 50%;
+    font-size: 12px;
+    font-weight: 300;
+    padding: 8px 8px ;
+    border-radius: inherit;cursor: pointer;
+}
+.zm-playlist .header .header-title .title.active{
+    background: var(--alpha-bg);
+}
+.zm-playlist .header > div.alarm,
+.zm-playlist .header > div.more{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 0 12px;
+    cursor: pointer;
+}
+.zm-playlist .header > div.alarm span,
+.zm-playlist .header > div.more span{
+    font-size: 18px;
+}
+
+
+.zm-playlist .playlist-content{
+    margin-top: 20px;
+    overflow-y: auto;
+    height: 100%;
+}
+.zm-playlist .playlist-content .card-song {
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+}
+.zm-playlist .playlist-content .card-song.active{
+    background: var(--purple-primary);
+}
+.card-song .zm-card-image .hover-card-section span{
+    font-size:30px;
+}
+
+.card-song .zm-card-image .hover-card-section span.pause{
+    display: none;
+}
+
+ /* ------------- HOVER AND ACTIVE ------------- */
+.card-song:hover{
+    background: var(--alpha-bg);
+}
+.card-song:hover .zm-card-image .hover-card-section{
+    display: flex;
+}
+.card-song.active .zm-card-image .hover-card-section{
+    display: flex;
+} 
+.card-song.active .zm-card-image .hover-card-section span.play{
+    display: none;
+}
+.card-song.active .zm-card-image .hover-card-section span.pause{
+    display: block;
+}
+
+
+.zm-playlist .card-song .zm-card-image{
+    margin-right: 12px;
+}
+.zm-playlist .card-song .zm-card-image img{
+    width: 50px;
+    height: 50px;
+}
+.card-song .card-info .title{
+    width: 97%;
+}
+.card-song .card-info .subtitle-wrap{
+    margin-top: 6px;
+    height: 20px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+.zm-playlist .playlist-songs .title-next{
+    padding: 15px 10px 5px;
+}
