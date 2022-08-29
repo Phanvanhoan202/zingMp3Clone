@@ -696,7 +696,7 @@ main .zm-header{
     position: fixed;
     top: 0;
     left: 15rem;
-    right: 10px;
+    right: 0;
     padding: 15px var(--padding-section);
     z-index: 100;
     background: var(--layout-bg);
